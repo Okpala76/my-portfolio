@@ -1,65 +1,159 @@
+import { Container } from "@/component/Container";
+import { Footer } from "@/component/Footer";
+import { Navbar } from "@/component/Navbar";
+import { ProjectCard } from "@/component/ProjectCard";
+import { Section } from "@/component/Section";
+import { SkillPill } from "@/component/SkillPill";
+import { siteContent } from "@/content/site";
 import Image from "next/image";
 
-export default function Home() {
+export default function HomePage() {
+  const { person, contact, hero, about, projects, skills, work, education } =
+    siteContent;
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+    <>
+      <Navbar />
+      <main>
+        <Container>
+          {/* HERO */}
+          <section className="py-12 md:py-16">
+            <div className="grid gap-8 md:grid-cols-[160px_1fr] md:items-center">
+              <div className="flex justify-center md:justify-start">
+                <div className="relative h-40 w-40 overflow-hidden ">
+                  <Image
+                    src={person.headshotSrc}
+                    alt={`${person.fullName} headshot`}
+                    fill
+                    className="object-contain"
+                    priority
+                  />
+                </div>
+              </div>
+
+              <div className="space-y-4">
+                <p className="text-sm text-neutral-600">{person.location}</p>
+                <h1 className="text-3xl font-semibold tracking-tight md:text-4xl">
+                  {person.fullName}
+                </h1>
+                <p className="text-lg text-neutral-700">{hero.headline}</p>
+                <p className="text-neutral-600">{hero.subheadline}</p>
+
+                <div className="flex flex-wrap gap-3 pt-2">
+                  <a
+                    className="rounded-xl bg-neutral-900 px-4 py-2 text-sm font-medium text-white hover:opacity-90"
+                    href={person.resumeUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Resume
+                  </a>
+                  <a
+                    className="rounded-xl border border-neutral-300 px-4 py-2 text-sm font-medium hover:bg-neutral-50"
+                    href={`mailto:${contact.email}`}
+                  >
+                    Email
+                  </a>
+                  <a
+                    className="rounded-xl border border-neutral-300 px-4 py-2 text-sm font-medium hover:bg-neutral-50"
+                    href={contact.linkedinUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    LinkedIn
+                  </a>
+                  <a
+                    className="rounded-xl border border-neutral-300 px-4 py-2 text-sm font-medium hover:bg-neutral-50"
+                    href={contact.githubUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    GitHub
+                  </a>
+                </div>
+
+                <div className="text-sm text-neutral-600">
+                  <span className="mr-3">📧 {contact.email}</span>
+                  {contact.phone ? <span>📱 {contact.phone}</span> : null}
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* ABOUT */}
+          <Section title="About">
+            <div className="space-y-4 text-neutral-700">
+              {about.paragraphs.map((p) => (
+                <p key={p}>{p}</p>
+              ))}
+            </div>
+          </Section>
+
+          {/* PROJECTS */}
+          <Section title="Projects">
+            <div className="grid gap-4 md:grid-cols-2">
+              {projects.map((project) => (
+                <ProjectCard key={project.name} project={project} />
+              ))}
+            </div>
+          </Section>
+
+          {/* SKILLS */}
+          <Section title="Skills">
+            <div className="flex flex-wrap gap-2">
+              {skills.map((skill) => (
+                <SkillPill key={skill} label={skill} />
+              ))}
+            </div>
+          </Section>
+
+          {/* EXPERIENCE */}
+          <Section title="Experience">
+            <div className="space-y-6">
+              {work.map((job) => (
+                <div
+                  key={`${job.company}-${job.role}`}
+                  className="rounded-2xl border border-neutral-200 p-5"
+                >
+                  <div className="flex flex-wrap items-baseline justify-between gap-2">
+                    <h3 className="text-lg font-semibold">{job.role}</h3>
+                    <p className="text-sm text-neutral-600">{job.period}</p>
+                  </div>
+                  <p className="text-neutral-700">{job.company}</p>
+                  <ul className="mt-3 list-disc space-y-1 pl-5 text-neutral-700">
+                    {job.highlights.map((h) => (
+                      <li key={h}>{h}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </Section>
+
+          {/* EDUCATION */}
+          <Section title="Education">
+            <div className="space-y-4">
+              {education.map((e) => (
+                <div
+                  key={`${e.school}-${e.period}`}
+                  className="rounded-2xl border border-neutral-200 p-5"
+                >
+                  <div className="flex flex-wrap items-baseline justify-between gap-2">
+                    <h3 className="text-lg font-semibold">{e.school}</h3>
+                    <p className="text-sm text-neutral-600">{e.period}</p>
+                  </div>
+                  <ul className="mt-3 list-disc space-y-1 pl-5 text-neutral-700">
+                    {e.details.map((d) => (
+                      <li key={d}>{d}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </Section>
+        </Container>
       </main>
-    </div>
+      <Footer />
+    </>
   );
 }
