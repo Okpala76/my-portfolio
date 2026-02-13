@@ -92,8 +92,8 @@ export const siteContent: SiteContent = {
         "A platform connecting individuals with real estate professionals.",
       tags: ["Next.js", "FastAPI", "Supabase", "Railway"],
       links: {
-        live: "https://PLACEHOLDER_PROPI_LIVE_URL",
-        github: "https://PLACEHOLDER_PROPI_GITHUB_URL",
+        live: "propi.io",
+        // github: "https://PLACEHOLDER_PROPI_GITHUB_URL",
       },
     },
     {
@@ -102,8 +102,8 @@ export const siteContent: SiteContent = {
         "An app that helps users evaluate and find healthier oil products.",
       tags: ["React Native", "Firebase"],
       links: {
-        live: "https://PLACEHOLDER_NSO_LIVE_URL",
-        github: "https://PLACEHOLDER_NSO_GITHUB_URL",
+        // live: "https://PLACEHOLDER_NSO_LIVE_URL",
+        // github: "https://PLACEHOLDER_NSO_GITHUB_URL",
       },
     },
     {
@@ -112,8 +112,8 @@ export const siteContent: SiteContent = {
         "A medication reminder app that sends scheduled reminders to users.",
       tags: ["Node.js", "Firebase"],
       links: {
-        live: "https://PLACEHOLDER_MAMEDS_LIVE_URL",
-        github: "https://PLACEHOLDER_MAMEDS_GITHUB_URL",
+        // live: "https://PLACEHOLDER_MAMEDS_LIVE_URL",
+        // github: "https://PLACEHOLDER_MAMEDS_GITHUB_URL",
       },
     },
     {
@@ -122,18 +122,28 @@ export const siteContent: SiteContent = {
         "A fantasy football scheduling tool with fixture analysis and difficulty insights.",
       tags: ["Python", "Automation"],
       links: {
-        live: "https://PLACEHOLDER_FPL_LIVE_URL",
-        github: "https://PLACEHOLDER_FPL_GITHUB_URL",
+        // live: "https://PLACEHOLDER_FPL_LIVE_URL",
+        // github: "https://PLACEHOLDER_FPL_GITHUB_URL",
       },
     },
     {
       name: "PathFindAI",
       description:
         "AI-powered project management and team collaboration platform.",
-      tags: ["AI Tools", "Full-stack"],
+      tags: ["AI Tools", "Full-stack", "Remix", "Fast API"],
       links: {
-        live: "https://PLACEHOLDER_PATHFINDAI_LIVE_URL",
-        github: "https://PLACEHOLDER_PATHFINDAI_GITHUB_URL",
+        // live: "https://PLACEHOLDER_PATHFINDAI_LIVE_URL",
+        // github: "https://PLACEHOLDER_PATHFINDAI_GITHUB_URL",
+      },
+    },
+    {
+      name: "Studomia",
+      description:
+        "A space for learning, creativity, and participation — shaped by those who take part.”",
+      tags: ["Full-stack", "Nuxt", "NestJS", "Supabase", "Drizzle"],
+      links: {
+        // live: "https://PLACEHOLDER_PATHFINDAI_LIVE_URL",
+        // github: "https://PLACEHOLDER_PATHFINDAI_GITHUB_URL",
       },
     },
   ],
@@ -155,6 +165,10 @@ export const siteContent: SiteContent = {
     "Jest",
     "Cypress",
     "Storybook",
+    "Nuxt",
+    "Vue",
+    "Remix",
+    "Drizzle",
   ],
 
   work: [

@@ -11,10 +11,13 @@ const navItems: ReadonlyArray<{ label: string; href: string }> = [
 
 export function Navbar() {
   return (
-    <header className="sticky top-0 z-50 border-b border-neutral-200 bg-white/80 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-[color:var(--color-line)] bg-white/70 backdrop-blur">
       <Container>
         <div className="flex items-center justify-between py-4">
-          <a className="font-semibold" href="#">
+          <a
+            className="text-base font-semibold tracking-tight text-[color:var(--color-ink)]"
+            href="#"
+          >
             {siteContent.person.fullName}
           </a>
 
@@ -23,7 +26,7 @@ export function Navbar() {
               <a
                 key={item.href}
                 href={item.href}
-                className="text-sm text-neutral-700 hover:text-neutral-900"
+                className="text-sm text-[color:var(--color-muted)] transition hover:text-[color:var(--color-ink)]"
               >
                 {item.label}
               </a>
@@ -31,7 +34,7 @@ export function Navbar() {
           </nav>
 
           <a
-            className="rounded-xl bg-neutral-900 px-3 py-2 text-sm font-medium text-white hover:opacity-90"
+            className="rounded-full bg-[linear-gradient(135deg,var(--color-accent),var(--color-green))] px-4 py-2 text-sm font-semibold text-white shadow-md shadow-black/10 transition hover:-translate-y-0.5 hover:shadow-lg"
             href={`mailto:${siteContent.contact.email}`}
           >
             Contact
